@@ -4,20 +4,20 @@ import { Title } from './componentes/Title'
 import { useState } from 'react';
 
 export default function Home() {
-  const [inputName, setInputName] = useState("");
-  const [inputSurname, setInputSurname] = useState("");
+  const [state, setState] = useState("");
 
-  // console.log("inputText", inputText);
 
   const handleOnChange = (event) => {
-    console.log(event)
-    const { value, id } = event.target;
-    id === "name" ? setInputName(value) : setInputSurname(value)
+    const { value} = event.target;
+    console.log(value);
+    
+    setState(value)
+
   }
 
 const clean = () => {
-  setInputName("")
-  setInputSurname("")
+  setState("")
+
 }
 
 
@@ -30,15 +30,7 @@ const clean = () => {
         type="text" 
         id="name"
         placeholder="Name"
-        value={inputName}
-        onChange={(event) => handleOnChange(event)}
-      />
-
-      <input
-        type= "text"
-        id="surname"
-        placeholder="Surname"
-        value={inputSurname}
+        value={state}
         onChange={(event) => handleOnChange(event)}
       />
 
